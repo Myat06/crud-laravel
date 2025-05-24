@@ -4,7 +4,7 @@
         <div class="card-header">Edit Page</div>
            
         <div class="card-body">
-            <form action="{{ url('/students/' . $students->id) }}" method="POST" >
+            <form action="{{ url('/students/' . $students->id) }}" method="POST" enctype="multipart/form-data">
               
                 {!! csrf_field() !!}
                 @method('PATCH')
@@ -19,6 +19,13 @@
                 <input type="text" name="address" id="address" value="{{ $students->address }}" class="form-control"></br>
                 <label>Date of Birth</label></br>
                 <input type="date" name="date_of_birth" id="date_of_birth" value="{{ $students->date_of_birth }}" class="form-control"></br>
+                
+                <label>Profile Picture</label></br>
+                @if($students->profile_picture)
+                    <img src="{{ asset('storage/' . $students->profile_picture) }}" alt="Profile Picture" width="80" class="mb-2 rounded"><br>
+                @endif
+                <input type="file" name="profile_picture" class="form-control mb-3">
+
                 <input type="submit" value="Update" class="btn btn-success"></br>
             </form>
           

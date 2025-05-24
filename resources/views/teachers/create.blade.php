@@ -2,25 +2,16 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">Student Page</div>
+        <div class="card-header">Teacher Page</div>
         <div class="card-body">
-            <form action="{{ url('/students') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/teachers') }}" method="POST">
                 @csrf
 
                 <!-- Name Field -->
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">Teacher Name</label>
                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
                     @error('name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- Email Field -->
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
-                    @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -41,21 +32,6 @@
                     @error('address')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div>
-
-                <!-- Date of Birth Field -->
-                <div class="mb-3">
-                    <label for="date_of_birth" class="form-label">Date of Birth</label>
-                    <input type="date" name="date_of_birth" id="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror" value="{{ old('date_of_birth') }}">
-                    @error('date_of_birth')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- Profile Picture Field -->
-                <div class="mb-3">
-                    <label for="profile_picture" class="form-label">Profile Picture</label>
-                    <input type="file" name="profile_picture" class="form-control">
                 </div>
 
                 <!-- Submit Button -->
